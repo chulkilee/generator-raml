@@ -28,7 +28,7 @@ gulp.task('build', function () {
   return gulp.src(files.src)
     .pipe(plugins.plumber({errorHandler: onError}))
     .pipe(plugins.raml2html())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(files.dist));
 });
 
 gulp.task('clean', function () {
@@ -49,7 +49,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('webserver', function () {
-  return gulp.src('dist')
+  return gulp.src(files.dist)
     .pipe(plugins.webserver({
       port: port,
       livereload: true
